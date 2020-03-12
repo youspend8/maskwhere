@@ -9,8 +9,12 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta property="og:title" content="마스크 거기">
 	<meta property="og:description" content="마스크 관련 공공데이터를 이용한 판매처 및 재고현황을 제공하는 서비스입니다.">
+	<meta property="og:url" content="https://www.thereright.co.kr">
+	<meta property="og:type" content="website">
 	<meta property="og:image" content="">
+	<meta name="description" content="공공데이터를 활용한 마스크 판매처 및 재고 현황을 제공하는 서비스입니다." />
 	<meta name="naver-site-verification" content="35d9bc3262f8f9b45b902fb875586a9a965099dd"/>
+	<meta name="google-site-verification" content="0EJP9jEvzKPlfbRC0y57xWXrAIVIWJ69yR9m1MyUXe8" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fe3820d4a415ead65c11b74b1392d151&libraries=services"></script>
