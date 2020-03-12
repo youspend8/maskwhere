@@ -104,7 +104,7 @@
 			    <configuration>
 			        <path>/</path>
 			        <update>true</update>
-					<url>https://www.thereright.co.kr/manager/text</url>
+					<url>http://192.168.35.100:8080/manager/text</url>
 					<username>root</username>
 					<password>root</password>
 			    </configuration>
