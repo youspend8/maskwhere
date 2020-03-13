@@ -332,9 +332,9 @@
 					    }
 					    
 					    if (positions.created_at == null) {
-							iwContent +='			<div class="ellipsis text-dark">갱신시간 : ' + '정보없음' + '</div>';
+							iwContent +='			<div class="ellipsis text-dark w-100">갱신시간 : ' + '정보없음' + '</div>';
 					    } else {
-							iwContent +='			<div class="ellipsis text-dark">갱신시간 : ' + positions.created_at + '</div>';
+							iwContent +='			<div class="ellipsis text-dark w-100">갱신시간 : ' + positions.created_at + '</div>';
 					    }
 					    
 		                iwContent +='			<div class="d-flex justify-content-between align-self-end col-12 mt-2">' + 
