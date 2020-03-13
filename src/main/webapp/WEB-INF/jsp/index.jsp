@@ -326,12 +326,12 @@
 					    } else if (positions.remain_stat == 'break') {
 					    	imageSrc = emptySrc;
 					    	iwContent += '<div class="ellipsis text-secondary">' + '판매중지' + '</div>';
-					    } else if (positions.remain_stat == 'null') {
+					    } else if (positions.remain_stat == null) {
 					    	imageSrc = emptySrc;
 					    	iwContent += '<div class="ellipsis text-secondary">' + '재고정보 없음' + '</div>';
 					    }
 					    
-					    if (positions.created_at == 'null') {
+					    if (positions.created_at == null) {
 							iwContent +='			<div class="ellipsis text-dark">갱신시간 : ' + 정보없음 + '</div>';
 					    } else {
 							iwContent +='			<div class="ellipsis text-dark">갱신시간 : ' + positions.created_at + '</div>';
