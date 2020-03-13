@@ -70,7 +70,7 @@
 		<i class="material-icons">my_location</i>
 	</button>
 	
-	<select id="quick_panto" class="form-control text-white">
+	<select id="quick_panto" class="form-control text-white bg-dark">
 		<option disabled selected hidden>빠른이동</option>
 		<option value="37.5678430,126.9825230,8">서울</option>
 		<option value="37.4560890,126.7059180,8">인천</option>
@@ -93,7 +93,7 @@
 	
 	<footer class="footer d-flex justify-content-between">
 		<label class="font-weight-bold text-white m-0 px-2 text-center" style="font-size: 15px;">
-			v0.1
+			v0.5
 		</label>
 		<label class="font-weight-bold text-white m-0 px-2 text-center" style="font-size: 15px;">
 			개발자 메일 : chaehunbn@gmail.com
@@ -326,9 +326,17 @@
 					    } else if (positions.remain_stat == 'break') {
 					    	imageSrc = emptySrc;
 					    	iwContent += '<div class="ellipsis text-secondary">' + '판매중지' + '</div>';
+					    } else if (positions.remain_stat == 'null') {
+					    	imageSrc = emptySrc;
+					    	iwContent += '<div class="ellipsis text-secondary">' + '재고정보 없음' + '</div>';
 					    }
 					    
-						iwContent +='			<div class="ellipsis text-dark">갱신시간 : ' + positions.created_at + '</div>';
+					    if (positions.created_at == 'null') {
+							iwContent +='			<div class="ellipsis text-dark">갱신시간 : ' + 정보없음 + '</div>';
+					    } else {
+							iwContent +='			<div class="ellipsis text-dark">갱신시간 : ' + positions.created_at + '</div>';
+					    }
+					    
 		                iwContent +='			<div class="d-flex justify-content-between align-self-end col-12 mt-2">' + 
 		                			'				<a class="btn btn-dark col-6 p-1" href="https://map.kakao.com/link/to/' + positions.name + ',' + lat + ',' + lng + '" target="_blank" style="margin-right: 5px; margin-left: -2.5px; font-size: 15px;">길찾기</a>' +
 		                			'				<a class="btn btn-dark col-6 p-1" href="https://map.kakao.com/link/map/' + positions.name + ',' + lat + ',' + lng + '" target="_blank" style="font-size: 15px;">크게보기</a>' + 
@@ -449,6 +457,19 @@
 	            	fetchCoords(latitude, longitude);
 
 					panTo(latitude, longitude);
+
+					var marker = new kakao.maps.Marker({
+				        map: map, // 마커를 표시할 지도
+				        position: new kakao.maps.LatLng(latitude, longitude),
+				        title : '현재위치',
+				        image : new kakao.maps.MarkerImage('/icons/current.png', new kakao.maps.Size(20, 20))
+				    });
+					
+					if (currentMarker != null) {
+						currentMarker.setMap(null);	
+					}
+					currentMarker = marker;
+					currentMarker.setMap(map);
 					
 	            }, function(error) {
 	                console.log(error.message);

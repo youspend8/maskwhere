@@ -46,6 +46,7 @@
 	font-size: 12px;
 	font-family: 'Malgun Gothic', dotum, 'µ¸¿ò', sans-serif;
 	line-height: 1.5;
+	z-index: 9999;
 }
 
 .wrap * {
