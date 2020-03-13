@@ -39,7 +39,7 @@
 	left: 0;
 	bottom: 40px;
 	width: 200px;
-	height: 175px;
+	height: 190px;
 	margin-left: -97.5px;
 	text-align: left;
 	overflow: hidden;
@@ -55,7 +55,7 @@
 
 .wrap .info {
 	width: 100%;
-	height: 164px;
+	height: 180px;
 	border-radius: 5px;
 	border-bottom: 2px solid #ccc;
 	border-right: 1px solid #ccc;
