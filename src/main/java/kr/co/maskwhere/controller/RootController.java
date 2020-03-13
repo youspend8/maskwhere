@@ -5,15 +5,14 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import kr.co.maskwhere.module.MaskModule;
-import kr.co.maskwhere.service.CodeService;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -23,23 +22,29 @@ public class RootController {
 	
 	private final MaskModule maskModule;
 	
-	@GetMapping(value="/")
+	@GetMapping(value={
+			"/",
+			"/k",
+			"/f",
+			"/i",
+	})
 	public String index() {
 		
 		return "/index";
 	}
 	
-	@GetMapping(value="/search/{address}")
+	@GetMapping(value="/search")
 	@ResponseBody
 	public String search(Model model,
-			@PathVariable("address") String address) throws JsonProcessingException {
+			@RequestParam Map<String, Object> params) throws JsonProcessingException {
 		
-		System.out.println("address :: " + address);
+		System.out.println("params :: " + params);
 		
-		Map<String, Object> result = maskModule.fetch(address);
+		Map<String, Object> result = maskModule.fetchByCoords(params);
 		
 		model.addAttribute("result", result);
 		
 		return new ObjectMapper().writeValueAsString(result);
 	}
+	
 }
