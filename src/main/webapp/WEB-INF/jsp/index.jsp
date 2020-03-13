@@ -332,7 +332,7 @@
 					    }
 					    
 					    if (positions.created_at == null) {
-							iwContent +='			<div class="ellipsis text-dark">갱신시간 : ' + 정보없음 + '</div>';
+							iwContent +='			<div class="ellipsis text-dark">갱신시간 : ' + '정보없음' + '</div>';
 					    } else {
 							iwContent +='			<div class="ellipsis text-dark">갱신시간 : ' + positions.created_at + '</div>';
 					    }
