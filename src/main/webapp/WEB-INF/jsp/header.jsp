@@ -10,6 +10,7 @@
 	<meta property="og:title" content="마스크 거기">
 	<meta property="og:description" content="마스크 관련 공공데이터를 이용한 판매처 및 재고현황을 제공하는 서비스입니다.">
 	<meta property="og:image" content="">
+	<link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fe3820d4a415ead65c11b74b1392d151"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
