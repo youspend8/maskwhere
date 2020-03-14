@@ -1,18 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>¸¶½ºÅ©°Å±â - thereright</title>
+	<title>ë§ˆìŠ¤í¬ê±°ê¸° - thereright</title>
 	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta property="og:title" content="¸¶½ºÅ© °Å±â">
-	<meta property="og:description" content="¸¶½ºÅ© °ü·Ã °ø°øµ¥ÀÌÅÍ¸¦ ÀÌ¿ëÇÑ ÆÇ¸ÅÃ³ ¹× Àç°íÇöÈ²À» Á¦°øÇÏ´Â ¼­ºñ½ºÀÔ´Ï´Ù.">
+	<meta property="og:title" content="ë§ˆìŠ¤í¬ ê±°ê¸°">
+	<meta property="og:description" content="ë§ˆìŠ¤í¬ ê´€ë ¨ ê³µê³µë°ì´í„°ë¥¼ ì´ìš©í•œ íŒë§¤ì²˜ ë° ì¬ê³ í˜„í™©ì„ ì œê³µí•˜ëŠ” ì„œë¹„ìŠ¤ì…ë‹ˆë‹¤.">
 	<meta property="og:url" content="https://www.thereright.co.kr">
 	<meta property="og:type" content="website">
 	<meta property="og:image" content="">
-	<meta name="description" content="°ø°øµ¥ÀÌÅÍ¸¦ È°¿ëÇÑ ¸¶½ºÅ© ÆÇ¸ÅÃ³ ¹× Àç°í ÇöÈ²À» Á¦°øÇÏ´Â ¼­ºñ½ºÀÔ´Ï´Ù." />
+	<meta name="description" content="ê³µê³µë°ì´í„°ë¥¼ í™œìš©í•œ ë§ˆìŠ¤í¬ íŒë§¤ì²˜ ë° ì¬ê³  í˜„í™©ì„ ì œê³µí•˜ëŠ” ì„œë¹„ìŠ¤ì…ë‹ˆë‹¤." />
 	<meta name="naver-site-verification" content="35d9bc3262f8f9b45b902fb875586a9a965099dd"/>
 	<meta name="google-site-verification" content="0EJP9jEvzKPlfbRC0y57xWXrAIVIWJ69yR9m1MyUXe8" />
 	<link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon">
@@ -45,7 +46,7 @@
 			text-align: left;
 			overflow: hidden;
 			font-size: 12px;
-			font-family: 'Malgun Gothic', dotum, 'µ¸¿ò', sans-serif;
+			font-family: 'Malgun Gothic', dotum, 'ë‹ì›€', sans-serif;
 			line-height: 1.5;
 			z-index: 9999;
 		}
@@ -128,5 +129,166 @@
 			color: #5085BB;
 		}
 	</style>
+	
+	<style>
+		body {
+			overflow: hidden;
+		}
+		
+		#map {
+			width: 100%;
+			height: 100vh;
+		}
+		
+		.wrapper {
+			overflow-y: scroll;
+		}
+		.navigation {
+			width: 100%;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			background-color: rgb(0,0,0, 0.7);
+			position: absolute;
+			z-index: 1000;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+		
+		.footer {
+			position: absolute;
+			width: 100%;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			bottom: 0;
+			background-color: rgb(0,0,0, 0.7);
+			z-index: 1000;
+		}
+		
+		.overlay-btn {
+			position: absolute;
+			z-index: 1000;
+			border-radius: 100%;
+			width: 50px;
+			height: 50px;
+			display: flex;s
+			align-items: center;
+			text-align: center;
+		}
+		
+		#quick_panto {
+			position: absolute;
+			z-index: 1000;
+			border-radius: 10px;
+			width: 150px;
+			display: flex;
+			align-items: center;
+			text-align: center;
+			top: 65px;
+			left: 20px;
+			background-repeat: no-repeat;
+			background: black; 
+		}
+		
+		.sidebar_open {
+			display: flex;
+			align-items: center;
+			border: 1px solid #505050;
+			border-radius: 5px;
+			background: transparent;
+		}
+		
+		.sidebar {
+			width: 230px;
+			height: 100vh;
+			position: absolute;
+			z-index: 9999;
+			left: -300px;
+			box-shadow: 0 0 25px 5px;
+		}
+		
+		.sidebar-group {
+			list-style: none;
+			padding: 0;
+		}
+		
+		.sidebar-item {
+			cursor: pointer;
+		}
+		
+		.sidebar-item:hover {
+			background-color: #505050;
+		}
+		
+		.sidebar-link {
+			padding: 10px;
+			font-size: 18px;
+			font-weight: bold;
+			color: white;
+			display: flex;
+			align-items: center;
+		}
+		.sidebar-link:hover {
+			text-decoration: none;
+			color: white;
+		}
+		
+		.item-dep1,
+		.item-dep2 {
+		}
+		
+		.sidebar_close {
+			display: flex;
+			align-items: center;
+			border: 1px solid #505050;
+			border-radius: 5px;
+			background: transparent;
+		}
+	</style>
 </head>
 <body>
+	<header class="navigation d-flex justify-content-between align-items-center flex-wrap">
+		<button type="button" id="sidebar_open" class="sidebar_open">
+			<i class="material-icons text-white" style="font-size: 30px;">menu</i>
+		</button>
+		
+		<label class="font-weight-bold text-white m-0 col-8 col-sm-6 text-center" style="font-size: 20px;">
+			<c:set var="path" value="${requestScope['javax.servlet.forward.servlet_path']}" /> 
+
+			<c:choose>
+            	<c:when test="${path.equals('/')}">
+            		ë§ˆìŠ¤í¬ íƒìƒ‰
+            	</c:when>
+            	<c:when test="${path.contains('/corona/')}">
+					ì½”ë¡œë‚˜19 í˜„í™©
+            	</c:when>
+           	</c:choose>
+		</label>
+		
+		<button type="button" class="invisible" disabled>
+			<i class="material-icons">menu</i>
+		</button>
+	</header>
+	
+	<nav class="sidebar bg-dark" id="sidebar">
+		<div class="text-right d-flex justify-content-end align-items-center px-2" style="border: 1px solid #464646; height: 54.8611px;">
+			<button type="button" id="sidebar_close" class="sidebar_close">
+				<i class="material-icons text-white" style="font-size: 30px;">arrow_back</i>
+			</button>
+		</div>
+		<ul class="sidebar-group">
+			<li class="sidebar-item item-dep1">
+				<a class="sidebar-link" href="/">
+					<i class="material-icons pr-3">search</i>
+					ë§ˆìŠ¤í¬ íƒìƒ‰
+				</a>
+			</li>
+			<li class="sidebar-item item-dep2">
+				<a class="sidebar-link" href="/corona/">
+					<i class="material-icons pr-3">bar_chart</i>
+					ì½”ë¡œë‚˜19 í˜„í™©
+				</a>
+			</li>
+		</ul>
+	</nav>
+	
+	<div id="wrapper" class="wrapper">
